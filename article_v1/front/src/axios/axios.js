@@ -1,5 +1,6 @@
 import axios from "axios"
-import prioridadesbr from "../Cadastro/Cadastro";
+import Home from "../screen/home";
+import Cadastro from "../screen/Cadastro";
 
 const api = axios.create({
     baseURL:"http://localhost:5000/api/",

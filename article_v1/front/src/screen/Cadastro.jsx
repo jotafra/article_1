@@ -12,11 +12,21 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
+//import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
 import api from "../axios/axios";
 
 function Cadastro(){
+
+  //<useNavigate to="/home"> go home</useNavigate>
+
+
+//  const navigate = useNavigate();
+
+//  const handleClick = () => {
+//    navigate('/home'); 
+//  };
 
 const [prioridadesbr, setprioridades] = useState({
     distancia: 5, // Valor inicial de 5 km
@@ -168,6 +178,19 @@ return(
                 type="submit"
                 variant="contained"
                 >Aplicar prioridades</Button>
+                {/* Botão de navegação para Home */}
+                <Button title="go home" onPress={() => navigation.navigate("home")}/>
+                {/* Botão de navegação para Home */}
+                <Button sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
+                fullWidth
+                variant="contained"
+                color="primary"
+                //onClick={}
+                //onPress={() => navigation.navigate("home")}
+                >
+                    Voltar para Home
+                </Button>
+            
             </Box>
         </Box>
     </Container>
