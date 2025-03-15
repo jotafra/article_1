@@ -1,13 +1,13 @@
 const router = require('express').Router()
 
-const userController = require("../controllers/userController");
+const user_priority = require("../controllers/user_priority");
 
 //Rotas userController
-router.post('/user', userController.createUser);
-router.post('/login', userController.loginUser);
-router.get('/user', userController.getAllUsers);
+router.post('/user', user_priority.prioridade);
+//router.post('/login', userController.loginUser);
+//router.get('/user', userController.getAllUsers);
 //router.get('/user/:cpf', userController.getxUserById); 
-router.put('/user', userController.updateUser);
-router.delete('/user/:id', userController.deleteUser);
+//router.put('/user', userController.updateUser);
+//router.delete('/user/:id', userController.deleteUser);
 
 module.exports = router
