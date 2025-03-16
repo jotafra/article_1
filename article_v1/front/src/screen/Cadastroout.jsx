@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../axios/axios";
 
-function Cadastro() {
+function Cadastroout() {
   //<useNavigate to="/home"> go home</useNavigate>
 
   //  const navigate = useNavigate();
@@ -230,4 +230,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default Cadastroout;

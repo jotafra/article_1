@@ -1,19 +1,21 @@
-import Cadastro from "./screen/Cadastro"
-import Home from "./screen/home"
+//estava faltando esse import
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Cadastro from "./screen/Cadastro";
+import Home from "./screen/home";
+import Cadastroout from "./screen/Cadastroout"
 
 function App() {
   return (
-    
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/home" element={<Home />} />
-    //     <Route path="/cadastro" element={<Cadastro />} />
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/cadastroout" element={<Cadastroout />} />
+      </Routes>
+    </BrowserRouter>
 
-
-    <div> <Cadastro/> </div>
-  )
+    // <div> <Cadastro/> </div>
+  );
 }
-export default App
-
+export default App;
