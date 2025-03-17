@@ -70,14 +70,6 @@ function Cadastroout() {
     }
   };
 
-  const distanceMarks = [
-    { value: 0, label: "0 km" },
-    { value: 25, label: "25 km" },
-    { value: 50, label: "50 km" },
-    { value: 75, label: "75 km" },
-    { value: 100, label: "100 km" },
-  ];
-
   const ratingMarks = [
     { value: 1, label: "1" },
     { value: 2, label: "2" },
@@ -120,16 +112,8 @@ function Cadastroout() {
           alignItems: "center",
         }}
       >
-        <Avatar
-          sx={{
-            margin: 1,
-            backgroundColor: "green",
-          }}
-        >
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
-          Coloque abaixo suas prioridades
+          Put below your priorities
         </Typography>
         <Box
           component="form"
@@ -138,27 +122,26 @@ function Cadastroout() {
         >
           {/* Slider para distância */}
           <Box sx={{ mt: 3, mb: 2 }}>
-            <Typography id="distance-slider" gutterBottom>
-              Distância de prioridade: {prioridadesbr.distancia} km
-            </Typography>
-            <Slider
-              value={prioridadesbr.distancia}
-              onChange={handleSliderChange("distancia")}
-              aria-labelledby="distance-slider"
-              valueLabelDisplay="auto"
-              step={5}
-              marks={distanceMarks}
-              min={0}
-              max={100}
-            />
+
           </Box>
-          {/* Sliders para avaliações de 1 a 10 */}
+          <TextField
+            required
+            fullWidth
+            id="cidade"
+            label="Country"
+            name="cidade"
+            margin="normal"
+            value={prioridadesbr.cidade}
+            onChange={onChange}
+          />
           {createRatingSlider(
             "qualidade",
             "Qualidade",
             prioridadesbr.qualidade
           )}
-          {createRatingSlider("mercado", "Mercado", prioridadesbr.mercado)}
+          {createRatingSlider("mercado", 
+            "Mercado", 
+            prioridadesbr.mercado)}
           {createRatingSlider(
             "producaocientifica",
             "Produção Científica",
@@ -195,16 +178,9 @@ function Cadastroout() {
               />
             </RadioGroup>
           </FormControl>
-          <TextField
-            required
-            fullWidth
-            id="cidade"
-            label="Cidade natal"
-            name="cidade"
-            margin="normal"
-            value={prioridadesbr.cidade}
-            onChange={onChange}
-          />
+
+          
+
           <Button
             sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
             fullWidth
