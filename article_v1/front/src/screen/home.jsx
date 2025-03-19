@@ -24,6 +24,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
+import locate from "../assets/locate.png";
+import img1 from "../assets/1.png";
+import img2 from "../assets/2.png";
+import img3 from "../assets/3.png";
+import img4 from "../assets/4.png";
+
+
 import api from "../axios/axios";
 
 function Home() {
@@ -37,7 +45,7 @@ function Home() {
     <Container maxWidth="md">
       <Box
         sx={{
-          mt: 8,
+          mt: 12,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -134,7 +142,7 @@ function Home() {
           variant="h6"
           component="p"
           align="center"
-          sx={{ mb: 4, maxWidth: "80%" }}
+          sx={{ mb: 4, maxWidth: "100%" }}
         >
           Para a sugestão da melhor universidade para você, precisamos saber quais são suas prioridades 
           em relação a alguns tópicos como:
@@ -208,7 +216,7 @@ function Home() {
           variant="h6"
           component="p"
           align="center"
-          sx={{ mb: 4, maxWidth: "80%" }}
+          sx={{ mb: 4, maxWidth: "100%" }}
         >
           A partir de suas prioridades é formado um vetor A em um gráfico 3D, 
           logo após realiza a comparação com as notas das universidades do 
@@ -293,11 +301,36 @@ function Home() {
           variant="h6"
           component="p"
           align="center"
-          sx={{ mb: 3, mt: 2, maxWidth: "60%" }}
+          sx={{ mb: 3, mt: 2, maxWidth: "100%" }}
         >
           Logo a universidade A é mais próxima das prioridades do Usuário X, 
           e a universidade B é mais próxima das prioridades do Usuário Y
         </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <img
+                  src={img1}
+                  alt="Cálculo de distância"
+                  style={{ height: "450px", borderRadius: 2 }}
+                />
+                <img
+                  src={img3}
+                  alt="Cálculo de distância"
+                  style={{ height: "450px", borderRadius: 2 }}
+                />
+              </Box>
+
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, mb: 4 }}>
+                <img
+                  src={img2}
+                  alt="Cálculo de distância"
+                  style={{ height: "450px", borderRadius: 2 }}
+                />
+                <img
+                  src={img4}
+                  alt="Cálculo de distância"
+                  style={{ height: "450px", borderRadius: 2 }}
+                />
+              </Box>
 
         <Typography
           variant="h4"
@@ -314,42 +347,74 @@ function Home() {
           variant="h6"
           component="p"
           align="center"
-          sx={{ mb: 3, mt: 2, maxWidth: "60%" }}
+          sx={{ mb: 3, mt: 2, maxWidth: "100%" }}
         >
-          A distancia é calculada com base em sua cidade natal e a distancia de prioridade, 
-          por exemplo:
+          A distancia é calculada com base em sua localização e a distancia de prioridade que é exigida 
+          nos parametros, com o valor de sua prioridade é formado um raio de uma circunferência no qual vai
+          abranger todas as faculdades da área atingida pelo circulo por exemplo:
         </Typography>
 
-
-        <Button
-          variant="contained"
-          size="large"
-          component={Link}
-          to="/cadastro"
-          sx={{ mt: 3, mb: 2,
-            backgroundColor: "green",
-            "&:hover": { backgroundColor: "darkgreen" },
-            px: 4,
-            py: 1.5,
+        {/* Imagem adicionada aqui após o último texto */}
+        <Box
+          sx={{
+            width: '100%',
+            textAlign: 'center',
+            mb: 4
           }}
         >
-          Quero uma universidade dentro do Brasil
-        </Button>
+          <Card elevation={3}>
+            <CardContent>
+              <Typography variant="h6" gutterBottom sx={{ color: "green" }}>
+                Visualização do Cálculo de Distância
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <img
+                  src={locate}
+                  alt="Cálculo de distância"
+                  style={{ height: "450px", borderRadius: 2 }}
+                />
+              </Box>
+            </CardContent>
+          </Card>
+        </Box>
 
         <Button
-          variant="contained"
-          size="large"
-          component={Link}
-          to="/cadastroout"
-          sx={{ mt: 3, mb: 2,
-            backgroundColor: "green",
-            "&:hover": { backgroundColor: "darkgreen" },
-            px: 4,
-            py: 1.5,
-          }}
-        >
-          Quero uma universidade fora do Brasil
-        </Button>
+            sx={{ 
+              mt: 2, 
+              mb: 3, 
+              backgroundColor: "green", 
+              py: 2,
+              fontSize: '1.1rem',
+              fontWeight: 'bold'
+            }}
+            fullWidth
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/cadastro"
+            size="large"
+          >
+            Quero fazer o teste com uma universidade dentro do Brasil
+          </Button>
+        
+        <Button
+            sx={{ 
+              mt: 2, 
+              mb: 3, 
+              backgroundColor: "green", 
+              py: 2,
+              fontSize: '1.1rem',
+              fontWeight: 'bold'
+            }}
+            fullWidth
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/cadastroout"
+            size="large"
+          >
+            Quero fazer o teste com uma universidade fora do Brasil
+          </Button>
       </Box>
     </Container>
   );

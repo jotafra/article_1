@@ -56,63 +56,33 @@ CREATE DATABASE article;
 
 USE article;
 
-CREATE TABLE prioridadesbr (
+CREATE TABLE prioridadesbrreq (
     distancia INT,
-    qualidade INT,
-    mercado INT,
-    producaocientifica INT,
-    reputacao INT,
-    inovacao INT,
+    qualidade DECIMAL(5,1),
+    mercado DECIMAL(5,1),
+    producaocientifica DECIMAL(5,1),
+    reputacao DECIMAL(5,1),
+    inovacao DECIMAL(5,1),
     publicaprivada VARCHAR(255),
     cidade VARCHAR(255)
 );
 
-CREATE TABLE prioridadesout (
-    id id INT PRIMARY KEY,
-    countryreq VARCHAR(100),
-    sizereq VARCHAR(10),
-    rankreq INT,
-    focusreq VARCHAR(10),
-    researchreq VARCHAR(10),
-    statusreq VARCHAR(10),
-    academicreputationreq DECIMAL(5,1),
-    employerreputationreq DECIMAL(5,1),
-    facultystudentreq DECIMAL(5,1),
-    citationsfacultyreq DECIMAL(5,1),
-    internationalfacultyreq DECIMAL(5,1),
-    internationalstudentsreq DECIMAL(5,1),
-    sustainabilityreq DECIMAL(5,1),
-    employmentscorereq DECIMAL(5,1),
-);
-
-
-CREATE TABLE qs_rankings_2025 (
+CREATE TABLE prioridadesoutreq (
     id INT PRIMARY KEY,
-    rank_2025 INT,
-    institution_name VARCHAR(255),
-    country VARCHAR(100),
-    region VARCHAR(100),
-    size VARCHAR(10),
-    focus VARCHAR(10),
-    research VARCHAR(10),
-    status VARCHAR(10),
-    academic_reputation_score DECIMAL(5,1),
-    academic_reputation_rank INT,
-    employer_reputation_score DECIMAL(5,1),
-    employer_reputation_rank INT,
-    faculty_student_score DECIMAL(5,1),
-    faculty_student_rank INT,
-    citations_per_faculty_score DECIMAL(5,1),
-    citations_per_faculty_rank INT,
-    international_faculty_score DECIMAL(5,1),
-    international_faculty_rank INT,
-    international_students_score DECIMAL(5,1),
-    international_students_rank INT,
-    international_research_network_score DECIMAL(5,1),
-    international_research_network_rank INT,
-    employment_outcomes_score DECIMAL(5,1),
-    employment_outcomes_rank INT,
-    sustainability_score DECIMAL(5,1),
-    sustainability_rank VARCHAR(10),
-    overall_score DECIMAL(5,1)
+    country_req VARCHAR(100),
+    size_req VARCHAR(10),
+    focus_req VARCHAR(10),
+    research_req VARCHAR(10),
+    status_req VARCHAR(10),
+    academic_reputation_score_req DECIMAL(5,1),
+    employer_reputation_score_req DECIMAL(5,1),
+    faculty_student_score_req DECIMAL(5,1),
+    citations_per_faculty_score_req DECIMAL(5,1),
+    international_faculty_score_req DECIMAL(5,1),
+    international_students_score_req DECIMAL(5,1),
+    international_research_network_score_req DECIMAL(5,1),
+    employment_outcomes_score_req DECIMAL(5,1),
+    sustainability_score_req DECIMAL(5,1),
+    overall_score_req DECIMAL(5,1)
 );
+

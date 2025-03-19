@@ -15,7 +15,6 @@ function App() {
       </Routes>
     </BrowserRouter>
 
-    // <div> <Cadastro/> </div>
   );
 }
 export default App;

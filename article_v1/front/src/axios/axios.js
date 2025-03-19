@@ -1,5 +1,6 @@
 import axios from "axios"
 import Home from "../screen/home";
+import Cadastroout from "../screen/Cadastroout";
 import Cadastro from "../screen/Cadastro";
 
 const api = axios.create({
@@ -7,7 +8,8 @@ const api = axios.create({
     headers:{"accept":"application/json"}
 })
 const sheets = { 
-    postprioridadesbr:(postprioridadesbr) => api.post("require/", postprioridadesbr),
+    postprioridadesbr:() => api.post("prioridadesbr/", Cadastro),
+    postprioridadesout:() => api.post("prioridadesout/", Cadastroout),
 }
 export default sheets;
 
