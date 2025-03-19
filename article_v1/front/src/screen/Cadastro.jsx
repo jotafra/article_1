@@ -42,18 +42,18 @@ function Cadastro() {
   const handleSubmit = (event) => {
     event.preventDefault();
     required();
-
-    async function required() {
-      await api.postprioridadesbr(prioridadesbr).then(
-        (response) => {
-          alert(response.data.message);
-        },
-        (error) => {
-          alert(error.response);
-        }
-      );
-    }
   };
+
+  async function required() {
+    await api.postprioridadesbr(prioridadesbr).then(
+      (response) => {
+        alert(response.data.message);
+      },
+      (error) => {
+        alert(error.response);
+      }
+    );
+  }
 
   // Novas marcações para slider de distância até 1000km
   const distanceMarks = [

@@ -1,15 +1,12 @@
-import axios from "axios"
-import Home from "../screen/home";
-import Cadastroout from "../screen/Cadastroout";
-import Cadastro from "../screen/Cadastro";
+import axios from "axios";
 
 const api = axios.create({
-    baseURL:"http://localhost:5000/api/",
-    headers:{"accept":"application/json"}
-})
-const sheets = { 
-    postprioridadesbr:() => api.post("prioridadesbr/", Cadastro),
-    postprioridadesout:() => api.post("prioridadesout/", Cadastroout),
-}
+  baseURL: "http://localhost:5000/api/",
+  headers: { accept: "application/json" },
+});
+const sheets = {
+  postprioridadesbr: (prioridadesbr) =>
+    api.post("prioridadebr/", prioridadesbr),
+  postprioridadesout: (x) => api.post("prioridadeout/", x)
+};
 export default sheets;
-

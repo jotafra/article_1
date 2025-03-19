@@ -7,12 +7,10 @@ const prioridadebr = require('../controllers/prioridadebr');
 // Rotas para prioridades
 router.post('/prioridadebr', prioridadebr.prioridadesbr);
 router.post('/prioridadeout', prioridadeout.prioridadesout);
+router.get('/teste', (req, res) => {
+    res.status(200).json({ ok: "TESTE" });
+  });
+  
 
-// Rotas comentadas (mantidas para referência)
-//router.post('/login', userController.loginUser);
-//router.get('/user', userController.getAllUsers);
-//router.get('/user/:cpf', userController.getxUserById); 
-//router.put('/user', userController.updateUser);
-//router.delete('/user/:id', userController.deleteUser);
 
 module.exports = router;

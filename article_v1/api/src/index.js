@@ -20,6 +20,9 @@ class AppController {
   routes() {
     const apiRoutes= require('./routes/apiRoutes')
     this.express.use('/api/',apiRoutes);// Definição da URL Base http://localhost:5000/api/
+    this.express.get('/',(_,res)=>{
+      res.send({status:"OK"})
+    })
   }
 }
 
