@@ -22,6 +22,7 @@ function Cadastroout() {
     country_req: "",
     size_req: "",
     focus_req: "",
+    region_req: "",
     research_req: "",
     status_req: "",
     academic_reputation_score_req: 5.0,
@@ -100,6 +101,14 @@ function Cadastroout() {
     { value: 10, label: "10" }
   ];
 
+  const regionOptions = [
+    {value: "Europe", label: "Europe"},
+    {value: "Americas", label: "Americas"},
+    {value: "Africa", label: "Africa"},
+    {value: "Asia", label: "Asia"},
+    {value: "Asia", label: "Asia"}
+  ];
+
   // Helper function to create rating sliders with float values
   const createRatingSlider = (id, label, value) => (
     <Box sx={{ mt: 3, mb: 2 }}>
@@ -161,6 +170,26 @@ function Cadastroout() {
           />
 
           {/* Dropdown selects for categorical fields */}
+          <TextField
+            select
+            required
+            fullWidth
+            id="region_req"
+            label="Region"
+            name="region_req"
+            margin="normal"
+            value={priorities.region_req}
+            onChange={onChange}
+          >
+            {regionOptions.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+
+
           <TextField
             select
             required

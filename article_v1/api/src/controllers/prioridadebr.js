@@ -59,6 +59,7 @@ module.exports = class prioridadesbr {
           }
           
           // Retorna mensagem de sucesso quando os dados são inseridos
+          // Incluindo o ID gerado automaticamente
           return res.status(201).json({ 
             success: true,
             message: "Prioridades registradas com sucesso!",

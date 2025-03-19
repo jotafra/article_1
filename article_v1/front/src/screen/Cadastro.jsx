@@ -257,6 +257,12 @@ function Cadastro() {
                 label="Privada"
                 sx={{ '& .MuiFormControlLabel-label': { fontSize: '1.1rem' } }}
               />
+              <FormControlLabel
+                value="Todas"
+                control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}/>}
+                label="Todas as opções"
+                sx={{ '& .MuiFormControlLabel-label': { fontSize: '1.1rem' } }}
+              />
             </RadioGroup>
           </FormControl>
 
@@ -295,6 +301,26 @@ function Cadastro() {
           >
             Voltar para Home
           </Button>
+
+          <Button
+            sx={{ 
+              mt: 2, 
+              mb: 5, 
+              backgroundColor: "green", 
+              py: 2,
+              fontSize: '1.1rem',
+              fontWeight: 'bold'
+            }}
+            fullWidth
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/show"
+            size="large"
+          >
+            Ir para ranking
+          </Button>
+
         </Box>
       </Box>
     </Container>

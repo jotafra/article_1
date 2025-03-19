@@ -1,4 +1,64 @@
 
+
+
+
+
+
+
+
+CREATE TABLE universidadesbr (
+    id SERIAL PRIMARY KEY,
+    universidade VARCHAR(255),
+    Estado CHAR(2),
+    Ranking INT,
+    Tipo VARCHAR(20),
+    Nota_Ensino DECIMAL(5,2),
+    Nota_Pesquisa DECIMAL(5,2),
+    Nota_Mercado DECIMAL(5,2),
+    Nota_Inovacao DECIMAL(5,2),
+    Nota_Internacionalizacao DECIMAL(5,2),
+    Nota_Total DECIMAL(5,2)
+);
+
+INSERT INTO universidadesbr (
+    Universidade, Estado, Ranking, Tipo, Nota_Ensino, 
+    Nota_Pesquisa, Nota_Mercado, Nota_Inovacao, Nota_Internacionalizacao, Nota_Total
+) VALUES
+('Universidade de São Paulo', 'SP', 1, 'Estadual', 31.35, 41.57, 18, 3.95, 3.96, 98.83),
+('Universidade Estadual de Campinas', 'SP', 2, 'Estadual', 31.79, 41.46, 17.37, 3.62, 3.88, 98.12),
+('Universidade Federal do Rio Grande do Sul', 'RS', 3, 'Federal', 31.35, 40.97, 16.74, 3.58, 3.8, 96.44),
+('Universidade Federal do Rio de Janeiro', 'RJ', 4, 'Federal', 30.79, 39.81, 17.73, 3.87, 3.75, 95.95),
+('Universidade Federal de Minas Gerais', 'MG', 5, 'Federal', 30.1, 40.67, 17.82, 3.65, 3.57, 95.81),
+('Universidade Estadual Paulista Júlio de Mesquita Filho', 'SP', 6, 'Estadual', 29.5, 39.95, 17.46, 3.21, 3.66, 93.78),
+('Universidade Federal de Santa Catarina', 'SC', 7, 'Federal', 30.93, 39.88, 15.93, 3.21, 3.69, 93.64),
+('Universidade de Brasília', 'DF', 8, 'Federal', 30.83, 38.28, 16.38, 3.05, 3.62, 92.16),
+('Universidade Federal do Paraná', 'PR', 9, 'Federal', 27.88, 38.33, 17.37, 3.7, 3.38, 90.66),
+('Universidade Federal de São Paulo', 'SP', 10, 'Federal', 30.93, 40.48, 11.79, 2.66, 3.87, 89.73),
+("Universidade Federal de Pernambuco", "PE", 11, "Federal", 29.64, 36.31, 17.37, 2.8, 3.14, 89.26),
+("Universidade Federal de São Carlos", "SP", 12, "Federal", 30.44, 39.36, 12.87, 2.83, 3.5, 89),
+("Universidade Federal de Santa Maria", "RS", 13, "Federal", 28.99, 37.87, 14.58, 2.93, 3.24, 87.61),
+("Universidade Federal de Uberlândia", "MG", 14, "Federal", 28.68, 37.25, 15.39, 3.35, 2.91, 87.58),
+("Universidade Federal de Viçosa", "MG", 15, "Federal", 30.64, 38.17, 11.79, 3.8, 3.15, 87.55),
+("Universidade Federal do Rio Grande do Norte", "RN", 16, "Federal", 27.8, 37.5, 15.39, 3.08, 3.45, 87.22),
+("Universidade Federal Fluminense", "RJ", 17, "Federal", 29.82, 35.07, 16.38, 2.87, 3.05, 87.19),
+("Universidade Federal da Bahia", "BA", 18, "Federal", 26.95, 36.79, 17.37, 2.75, 3.23, 87.09),
+("Universidade Federal de Goiás", "GO", 19, "Federal", 27.8, 36.4, 16.74, 2.86, 3.11, 86.91),
+("Universidade Federal do Ceará", "CE", 20, "Federal", 26.7, 37.6, 16.38, 2.74, 3.43, 86.85),
+("Universidade do Estado do Rio de Janeiro", "RJ", 21, "Estadual", 26.53, 36.15, 16.92, 2.6, 3.27, 85.47);
+
+
+
+
+
+
+
+
+=======================================================================================================
+
+
+
+
+
 CREATE TABLE universidadesbr (
     id SERIAL PRIMARY KEY,
     universidade VARCHAR(255),

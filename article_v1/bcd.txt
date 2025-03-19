@@ -37,6 +37,8 @@ npm install axios
 
 npm install react-router-dom
 
+npm install lucide-react
+
 -----------------------------------------------------------------------------------------------------------------
 CONFIGURAÇÃO E INSTALAÇÃO DE DEPENDENCIAS DA API 
 
@@ -57,6 +59,7 @@ CREATE DATABASE article;
 USE article;
 
 CREATE TABLE prioridadesbrreq (
+    id SERIAL PRIMARY KEY,
     distancia INT,
     qualidade DECIMAL(5,1),
     mercado DECIMAL(5,1),
@@ -71,6 +74,7 @@ CREATE TABLE prioridadesoutreq (
     id INT PRIMARY KEY,
     country_req VARCHAR(100),
     size_req VARCHAR(10),
+    region VARCHAR(100),
     focus_req VARCHAR(10),
     research_req VARCHAR(10),
     status_req VARCHAR(10),

@@ -7,6 +7,7 @@ module.exports = class prioridadesout {
       country_req, 
       size_req, 
       focus_req, 
+      region_req ,
       research_req, 
       status_req,
       academic_reputation_score_req,
@@ -32,6 +33,7 @@ module.exports = class prioridadesout {
         country_req, 
         size_req, 
         focus_req, 
+        region_req,
         research_req, 
         status_req,
         academic_reputation_score_req,
@@ -44,7 +46,7 @@ module.exports = class prioridadesout {
         employment_outcomes_score_req,
         sustainability_score_req,
         overall_score_req
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       
       connect.query(
         query,
@@ -52,6 +54,7 @@ module.exports = class prioridadesout {
           country_req, 
           size_req, 
           focus_req, 
+          region_req,
           research_req, 
           status_req,
           academic_reputation_score_req,
@@ -87,6 +90,7 @@ module.exports = class prioridadesout {
               country_req, 
               size_req, 
               focus_req, 
+              region_req,
               research_req, 
               status_req,
               academic_reputation_score_req,
