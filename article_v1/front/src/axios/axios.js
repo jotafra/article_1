@@ -6,10 +6,9 @@ const api = axios.create({
 });
 
 const sheets = {
-  postprioridadesbr: (prioridadesbr) => api.post("prioridadebr/", prioridadesbr),
+  postprioridadesbr: (prioridadesbr) => api.post("prioridadesbr/", prioridadesbr),
   postprioridadesout: (x) => api.post("prioridadeout/", x),
-  // Adicione a função para rankear universidades
-  rankUniversidades: (idPrioridade) => api.post("universidades/ranking", { idPrioridade }),
+  getRanking: (idPrioridade) => api.post("ranking/", { idPrioridade }),
 };
 
 export default sheets;

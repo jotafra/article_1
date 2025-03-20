@@ -49,19 +49,19 @@ function Cadastroout() {
   const handleSubmit = (event) => {
     event.preventDefault();
     required();
-
-    async function required() {
-      await api.postrequired(priorities).then(
-        (response) => {
-          alert(response.data.message);
-        },
-        (error) => {
-          console.log(error);
-          alert(error.response.data.error);
-        }
-      );
-    }
   };
+  
+  async function required() {
+    await api.postrequired(priorities).then(
+      (response) => {
+        alert(response.data.message);
+      },
+      (error) => {
+        console.log(error);
+        alert(error.response.data.error);
+      }
+    );
+  }
 
   // Size options
   const sizeOptions = [
@@ -106,7 +106,6 @@ function Cadastroout() {
     {value: "Americas", label: "Americas"},
     {value: "Africa", label: "Africa"},
     {value: "Asia", label: "Asia"},
-    {value: "Asia", label: "Asia"}
   ];
 
   // Helper function to create rating sliders with float values
@@ -147,17 +146,6 @@ function Cadastroout() {
           sx={{ mt: 3, width: "100%" }}
           onSubmit={handleSubmit}
         >
-          {/* Text fields for region and country */}
-          <TextField
-            required
-            fullWidth
-            id="region"
-            label="Region"
-            name="region"
-            margin="normal"
-            value={priorities.region}
-            onChange={onChange}
-          />
           <TextField
             required
             fullWidth

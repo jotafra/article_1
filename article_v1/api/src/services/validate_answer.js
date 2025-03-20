@@ -20,11 +20,16 @@ module.exports = function validateanswer1({
     if (field !== 'distancia' && (Number(value) < 0 || Number(value) > 10)) {
       return { error: `O campo ${field} deve estar entre 0 e 10` };
     }
+
+    if (field === 'distancia' && (Number(value) < 0 || Number(value) > 1000)) {
+      return { error: `O campo ${field} deve estar entre 0 e 1000` };
+    }
+
   }
   
   // Validação para o campo publicaprivada (assumindo valores específicos)
-  if (!['publica', 'privada', 'ambas'].includes(publicaprivada.toLowerCase())) {
-    return { error: "O campo publicaprivada deve ser 'publica', 'privada' ou 'ambas'" };
+  if (!['publica', 'privada'].includes(publicaprivada.toLowerCase())) {
+    return { error: "O campo publicaprivada deve ser 'publica' ou 'privada'" };
   }
   
   // Validação para o campo cidade (verificar se não está vazio ou apenas espaços)

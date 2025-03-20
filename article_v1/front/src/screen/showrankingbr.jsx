@@ -24,14 +24,12 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import Alert from '@mui/material/Alert';
-
 import api from "../axios/axios";
-
 
 function RankingUniversidades() {
   const [ranking, setRanking] = useState([]);
   const [prioridades, setPrioridades] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({
@@ -44,24 +42,12 @@ function RankingUniversidades() {
   const fetchRanking = async (id) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/ranking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ idPrioridade: id }),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Falha ao buscar ranking');
-      }
-      
-      const data = await response.json();
-      setRanking(data.data);
-      setPrioridades(data.prioridades);
+      const response = await api.getRanking(id);
+      setRanking(response.data.data);
+      setPrioridades(response.data.prioridades);
       setLoading(false);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.error || err.message);
       setLoading(false);
     }
   };

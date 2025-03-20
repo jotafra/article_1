@@ -1,11 +1,5 @@
 
 
-
-
-
-
-
-
 CREATE TABLE universidadesbr (
     id SERIAL PRIMARY KEY,
     universidade VARCHAR(255),

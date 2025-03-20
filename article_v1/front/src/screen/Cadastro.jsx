@@ -45,14 +45,25 @@ function Cadastro() {
   };
 
   async function required() {
-    await api.postprioridadesbr(prioridadesbr).then(
-      (response) => {
-        alert(response.data.message);
-      },
-      (error) => {
-        alert(error.response);
+    try {
+      const response = await api.postprioridadesbr(prioridadesbr);
+      alert(response.data.message);
+    } catch (error) {
+      // Melhor tratamento de erro para mostrar mensagens úteis
+      if (error.response && error.response.data) {
+        // Se temos dados estruturados no erro
+        if (error.response.data.error) {
+          alert(`Erro: ${error.response.data.error}`);
+        } else if (error.response.data.message) {
+          alert(`Erro: ${error.response.data.message}`);
+        } else {
+          alert(`Erro ao enviar prioridades. Código: ${error.response.status}`);
+        }
+      } else {
+        // Caso não tenhamos uma resposta estruturada
+        alert("Erro ao enviar prioridades. Verifique sua conexão ou tente novamente mais tarde.");
       }
-    );
+    }
   }
 
   // Novas marcações para slider de distância até 1000km
@@ -257,12 +268,6 @@ function Cadastro() {
                 label="Privada"
                 sx={{ '& .MuiFormControlLabel-label': { fontSize: '1.1rem' } }}
               />
-              <FormControlLabel
-                value="Todas"
-                control={<Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}/>}
-                label="Todas as opções"
-                sx={{ '& .MuiFormControlLabel-label': { fontSize: '1.1rem' } }}
-              />
             </RadioGroup>
           </FormControl>
 
@@ -304,7 +309,7 @@ function Cadastro() {
 
           <Button
             sx={{ 
-              mt: 2, 
+              mt: 0, 
               mb: 5, 
               backgroundColor: "green", 
               py: 2,

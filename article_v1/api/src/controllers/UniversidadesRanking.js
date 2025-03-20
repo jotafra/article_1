@@ -89,6 +89,9 @@ module.exports = class UniversidadesRanking {
                   maxScore += pesoReputacao * 100;
                 }
                 
+                // Calcular pontuação final (normalizada)
+                const finalScore = maxScore > 0 ? (score / maxScore) * 100 : 0;
+                
                 // Verificar tipo (pública/privada)
                 let matchTipo = true;
                 if (prioridade.publicaprivada && prioridade.publicaprivada !== "Ambas") {
@@ -101,32 +104,9 @@ module.exports = class UniversidadesRanking {
                   }
                 }
                 
-                // Verificar cidade/estado
-                let matchCidade = true;
-                if (prioridade.cidade && prioridade.cidade.trim() !== "") {
-                  // Verifica se a cidade corresponde ao estado (usando sigla) 
-                  // ou se o nome da cidade está na universidade
-                  if (prioridade.cidade.length === 2) {
-                    // É um estado (sigla)
-                    matchCidade = univ.Estado === prioridade.cidade;
-                  } else {
-                    // É uma cidade ou parte do nome da universidade
-                    matchCidade = univ.Universidade.toLowerCase().includes(
-                      prioridade.cidade.toLowerCase()
-                    );
-                  }
-                }
-                
-                // Normalizar o score final (0-100)
-                const matchScore = maxScore > 0 ? (score / maxScore) * 100 : 0;
-                
-                // Se não corresponder ao tipo ou cidade, diminuir drasticamente o score
-                const finalScore = (matchTipo && matchCidade) ? matchScore : matchScore * 0.3;
-                
                 return {
                   id: univ.id,
                   universidade: univ.Universidade,
-                  estado: univ.Estado,
                   tipo: univ.Tipo,
                   ranking_original: univ.Ranking,
                   nota_total: univ.Nota_Total,
@@ -139,7 +119,6 @@ module.exports = class UniversidadesRanking {
                   },
                   score_compatibilidade: parseFloat(finalScore.toFixed(2)),
                   match_tipo: matchTipo,
-                  match_localizacao: matchCidade
                 };
               });
               
