@@ -1,5 +1,5 @@
 const connect = require("../db/connect");
-const validate_answer = require("../services/validate_answer2");
+const validateanswer2 = require("../services/validate_answer2");
 
 module.exports = class prioridadesout {
   static async prioridadesout(req, res) {
@@ -23,7 +23,7 @@ module.exports = class prioridadesout {
     } = req.body;
     
     // Valida os campos recebidos
-    const validationError = validate_answer(req.body);
+    const validationError = validateanswer2(req.body);
     if (validationError) {
       return res.status(400).json(validationError);
     } 
@@ -75,6 +75,7 @@ module.exports = class prioridadesout {
                 error: "Dados duplicados. Esta entrada já existe no banco de dados." 
               });
             }
+            console.log(err)
             return res.status(500).json({ 
               error: "Erro interno do servidor", 
               details: err.message 

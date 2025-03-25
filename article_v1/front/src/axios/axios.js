@@ -7,8 +7,9 @@ const api = axios.create({
 
 const sheets = {
   postprioridadesbr: (prioridadesbr) => api.post("prioridadesbr/", prioridadesbr),
-  postprioridadesout: (x) => api.post("prioridadeout/", x),
-  getRanking: (idPrioridade) => api.post("ranking/", { idPrioridade }),
+  postprioridadesout: (prioridadesout) => api.post("prioridadesout/", prioridadesout), 
+
+  buscarUniversidades: (data) => api.post('/buscar-universidades', data)
 };
 
 export default sheets;

@@ -320,7 +320,7 @@ function Cadastro() {
             variant="contained"
             color="primary"
             component={Link}
-            to="/show"
+            to="/Showrankingbr"
             size="large"
           >
             Ir para ranking

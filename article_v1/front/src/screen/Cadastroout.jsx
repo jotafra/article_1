@@ -6,19 +6,13 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import Radio from "@mui/material/Radio";
 import MenuItem from "@mui/material/MenuItem";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../axios/axios";
 
+
 function Cadastroout() {
-  const [priorities, setPriorities] = useState({
-    region: "",
+  const [prioridadesout, setprioridades] = useState({
     country_req: "",
     size_req: "",
     focus_req: "",
@@ -39,11 +33,11 @@ function Cadastroout() {
 
   const onChange = (event) => {
     const { name, value } = event.target;
-    setPriorities({ ...priorities, [name]: value });
+    setprioridades({ ...prioridadesout, [name]: value });
   };
 
   const handleSliderChange = (name) => (event, newValue) => {
-    setPriorities({ ...priorities, [name]: parseFloat(newValue.toFixed(1)) });
+    setprioridades({ ...prioridadesout, [name]: parseFloat(newValue.toFixed(1)) });
   };
 
   const handleSubmit = (event) => {
@@ -52,45 +46,52 @@ function Cadastroout() {
   };
   
   async function required() {
-    await api.postrequired(priorities).then(
-      (response) => {
-        alert(response.data.message);
-      },
-      (error) => {
-        console.log(error);
-        alert(error.response.data.error);
+    try {
+      const response = await api.postprioridadesout(prioridadesout);
+      alert(response.data.message);
+    } catch (error) {
+      // O código de tratamento de erro permanece o mesmo
+      if (error.response && error.response.data) {
+        if (error.response.data.error) {
+          alert(`Erro: ${error.response.data.error}`);
+        } else if (error.response.data.message) {
+          alert(`Erro: ${error.response.data.message}`);
+        } else {
+          alert(`Erro ao enviar prioridades. Código: ${error.response.status}`);
+        }
+      } else {
+        alert("Erro ao enviar prioridades. Verifique sua conexão ou tente novamente mais tarde.");
       }
-    );
+    }
   }
 
-  // Size options
+  // Size options - valores por extenso
   const sizeOptions = [
-    { value: "S", label: "Small" },
-    { value: "M", label: "Medium" },
-    { value: "L", label: "Large" },
-    { value: "XL", label: "Extra Large" }
+    { value: "small", label: "Small" },
+    { value: "medium", label: "Medium" },
+    { value: "large", label: "Large" },
+    { value: "extra large", label: "Extra Large" }
   ];
 
-  // Focus options
+  // Focus options - valores corrigidos conforme exigido pela API
   const focusOptions = [
-    { value: "COMP", label: "Comprehensive" },
-    { value: "SPEC", label: "Specialized" },
-    { value: "FART", label: "Focused Arts" },
-    { value: "FSCI", label: "Focused Sciences" }
+    { value: "comprehensive", label: "Comprehensive" },
+    { value: "specialized", label: "Specialized" },
+    { value: "focused", label: "Focused" }
   ];
 
   // Research options
   const researchOptions = [
-    { value: "HIGH", label: "High" },
-    { value: "MED", label: "Medium" },
-    { value: "LOW", label: "Low" }
+    { value: "high", label: "High" },
+    { value: "medium", label: "Medium" },
+    { value: "low", label: "Low" }
   ];
 
   // Status options
   const statusOptions = [
-    { value: "PUB", label: "Public" },
-    { value: "PRI", label: "Private" },
-    { value: "MIX", label: "Mixed" }
+    { value: "public", label: "Public" },
+    { value: "private", label: "Private" },
+    { value: "public/private", label: "Mixed" }
   ];
 
   const ratingMarks = [
@@ -153,7 +154,7 @@ function Cadastroout() {
             label="Country"
             name="country_req"
             margin="normal"
-            value={priorities.country_req}
+            value={prioridadesout.country_req}
             onChange={onChange}
           />
 
@@ -166,7 +167,7 @@ function Cadastroout() {
             label="Region"
             name="region_req"
             margin="normal"
-            value={priorities.region_req}
+            value={prioridadesout.region_req}
             onChange={onChange}
           >
             {regionOptions.map((option) => (
@@ -176,8 +177,6 @@ function Cadastroout() {
             ))}
           </TextField>
 
-
-
           <TextField
             select
             required
@@ -186,7 +185,7 @@ function Cadastroout() {
             label="Size"
             name="size_req"
             margin="normal"
-            value={priorities.size_req}
+            value={prioridadesout.size_req}
             onChange={onChange}
           >
             {sizeOptions.map((option) => (
@@ -204,7 +203,7 @@ function Cadastroout() {
             label="Focus"
             name="focus_req"
             margin="normal"
-            value={priorities.focus_req}
+            value={prioridadesout.focus_req}
             onChange={onChange}
           >
             {focusOptions.map((option) => (
@@ -222,7 +221,7 @@ function Cadastroout() {
             label="Research"
             name="research_req"
             margin="normal"
-            value={priorities.research_req}
+            value={prioridadesout.research_req}
             onChange={onChange}
           >
             {researchOptions.map((option) => (
@@ -240,7 +239,7 @@ function Cadastroout() {
             label="Status"
             name="status_req"
             margin="normal"
-            value={priorities.status_req}
+            value={prioridadesout.status_req}
             onChange={onChange}
           >
             {statusOptions.map((option) => (
@@ -254,55 +253,55 @@ function Cadastroout() {
           {createRatingSlider(
             "academic_reputation_score_req",
             "Academic Reputation Score",
-            priorities.academic_reputation_score_req
+            prioridadesout.academic_reputation_score_req
           )}
           {createRatingSlider(
             "employer_reputation_score_req",
             "Employer Reputation Score",
-            priorities.employer_reputation_score_req
+            prioridadesout.employer_reputation_score_req
           )}
           {createRatingSlider(
             "faculty_student_score_req",
             "Faculty/Student Ratio Score",
-            priorities.faculty_student_score_req
+            prioridadesout.faculty_student_score_req
           )}
           {createRatingSlider(
             "citations_per_faculty_score_req",
             "Citations per Faculty Score",
-            priorities.citations_per_faculty_score_req
+            prioridadesout.citations_per_faculty_score_req
           )}
           {createRatingSlider(
             "international_faculty_score_req",
             "International Faculty Score",
-            priorities.international_faculty_score_req
+            prioridadesout.international_faculty_score_req
           )}
           {createRatingSlider(
             "international_students_score_req",
             "International Students Score",
-            priorities.international_students_score_req
+            prioridadesout.international_students_score_req
           )}
           {createRatingSlider(
             "international_research_network_score_req",
             "International Research Network Score",
-            priorities.international_research_network_score_req
+            prioridadesout.international_research_network_score_req
           )}
           {createRatingSlider(
             "employment_outcomes_score_req",
             "Employment Outcomes Score",
-            priorities.employment_outcomes_score_req
+            prioridadesout.employment_outcomes_score_req
           )}
           {createRatingSlider(
             "sustainability_score_req",
             "Sustainability Score",
-            priorities.sustainability_score_req
+            prioridadesout.sustainability_score_req
           )}
           {createRatingSlider(
             "overall_score_req",
             "Overall Score",
-            priorities.overall_score_req
+            prioridadesout.overall_score_req
           )}
 
-<Button
+          <Button
             sx={{ 
               mt: 5, 
               mb: 3, 

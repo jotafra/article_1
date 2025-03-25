@@ -71,13 +71,13 @@ CREATE TABLE prioridadesbrreq (
 );
 
 CREATE TABLE prioridadesoutreq (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     country_req VARCHAR(100),
     size_req VARCHAR(10),
     region VARCHAR(100),
-    focus_req VARCHAR(10),
-    research_req VARCHAR(10),
-    status_req VARCHAR(10),
+    focus_req VARCHAR(20),
+    research_req VARCHAR(20),
+    status_req VARCHAR(20),
     academic_reputation_score_req DECIMAL(5,1),
     employer_reputation_score_req DECIMAL(5,1),
     faculty_student_score_req DECIMAL(5,1),

@@ -5,13 +5,14 @@ module.exports = class prioridadesbr {
 
   static async prioridadesbr(req, res) {
     const { 
-      distancia, 
       qualidade, 
       mercado, 
       producaocientifica, 
       reputacao,
       inovacao,
+      // We still receive these values but won't use them for compatibility calculation
       publicaprivada,
+      distancia,
       cidade 
     } = req.body;
     
